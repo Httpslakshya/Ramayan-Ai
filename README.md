@@ -1,59 +1,62 @@
-Ramayan AI 🕉️🤖
-An AI-powered RAG (Retrieval-Augmented Generation) chatbot built using LangChain, Qdrant, HuggingFace embeddings, and Groq LLMs that allows users to chat with the Ramayan PDF semantically.
-The project retrieves relevant passages from the Ramayan and generates grounded responses using AI instead of sending the entire PDF to the model every time.
+🕉️ Ramayan AI
+An AI-powered RAG chatbot that lets you chat with the Ramayan using natural language.
+Built using LangChain, Qdrant, HuggingFace embeddings, and Groq LLMs, the system retrieves relevant verses and passages from the Ramayan and generates contextual answers instead of sending the entire PDF to the AI model every time.
 
 ✨ Features
 
 
-📖 Chat with the Ramayan PDF
+📖 Chat with the Ramayan conversationally
 
 
 🔍 Semantic search using vector embeddings
 
 
-🧠 RAG architecture (Retrieval-Augmented Generation)
+🧠 RAG (Retrieval-Augmented Generation) architecture
 
 
-⚡ Fast inference using Groq Llama models
+⚡ Fast AI responses using Groq Llama models
 
 
-🆓 Free local embeddings using Sentence Transformers
+🆓 Completely free local embeddings
 
 
-🗂️ Qdrant Vector Database integration
+🗂️ Qdrant vector database integration
 
 
 📄 Multi-PDF support
 
 
-🎯 Context-aware answers with page references
+🎯 Context-aware responses with source references
+
+
+📚 Large PDF support (1900+ pages)
 
 
 
-🏗️ Architecture
-PDF ↓Text Chunking ↓Embeddings (MiniLM) ↓Qdrant Vector Database ↓Similarity Search ↓Relevant Context Retrieval ↓Groq LLM ↓Final AI Answer
+🏗️ How It Works
+                 User Query                       ↓             Semantic Similarity Search                       ↓             Relevant Ramayan Chunks                       ↓                Context Injection                       ↓                  Groq LLM                       ↓                 Final Answer
+Instead of sending the full Ramayan PDF to the AI model every time, only the most relevant chunks are retrieved and used for generating responses.
+This makes the system:
+
+
+faster
+
+
+cheaper
+
+
+scalable
+
+
+more accurate
+
+
+
+🧠 RAG Architecture
+Ramayan PDF      ↓Text Chunking      ↓MiniLM Embeddings      ↓Qdrant Vector Database      ↓Semantic Retrieval      ↓Relevant Context      ↓Groq LLM      ↓AI Generated Response
 
 🛠️ Tech Stack
-
-
-Python
-
-
-LangChain
-
-
-Qdrant
-
-
-HuggingFace Sentence Transformers
-
-
-Groq API
-
-
-PyPDFLoader
-
-
+TechnologyPurposePythonCore backendLangChainRAG orchestrationQdrantVector databaseHuggingFaceLocal embeddingsGroq APILLM inferencePyPDFLoaderPDF processing
 
 📦 Installation
 1. Clone Repository
@@ -61,7 +64,7 @@ git clone https://github.com/yourusername/ramayan-ai.gitcd ramayan-ai
 
 2. Create Virtual Environment
 python -m venv .venv
-Activate:
+Activate Environment
 Windows
 .venv\Scripts\activate
 Linux / Mac
@@ -73,99 +76,101 @@ Or manually:
 pip install langchainpip install langchain-communitypip install langchain-qdrantpip install langchain-huggingfacepip install sentence-transformerspip install qdrant-clientpip install python-dotenvpip install openaipip install pypdf
 
 🔑 Environment Variables
-Create a .env file:
+Create a .env file in the root directory:
 QDRANT_API_KEY=your_qdrant_api_keyQDRANT_URL=your_qdrant_urlGROQ_API_KEY=your_groq_api_key
 
-📚 Add Your PDF
-Place your PDF inside project folder:
+📚 Add The Ramayan PDF
+Place your PDF inside the project directory:
 ramayan-eng.pdf
 
 🧠 Index The PDF
 Run:
 python index.py
-This will:
+This process:
 
 
-Load PDF
+loads the PDF
 
 
-Split into chunks
+splits it into chunks
 
 
-Generate embeddings
+creates embeddings
 
 
-Store vectors in Qdrant
+stores vectors in Qdrant
 
 
 
-💬 Start Chatbot
+💬 Start The Chatbot
 Run:
 python chat.py
 Example:
 ask something => Who is Hanuman?
+ask something => Describe Lord Rama's appearance
+ask something => What happened during Sita Haran?
 
-⚙️ Current Model
-Embeddings
+⚙️ Models Used
+Embedding Model
 sentence-transformers/all-MiniLM-L6-v2
 LLM
 llama-3.3-70b-versatile
 via Groq API.
 
 📂 Project Structure
-ramayan-ai/│├── index.py├── chat.py├── .env├── requirements.txt├── ramayan-eng.pdf└── README.md
+ramayan-ai/│├── index.py├── chat.py├── requirements.txt├── .env├── ramayan-eng.pdf└── README.md
 
 🚀 Future Improvements
 
 
-Streamlit/React frontend
+🌐 Web interface (React / Streamlit)
 
 
-Conversational memory
+🧠 Conversational memory
 
 
-Multi-language support
+🎙️ Voice-based interaction
 
 
-Voice interaction
+🌍 Hindi/Sanskrit support
 
 
-Hybrid search
+📌 Citation highlighting
 
 
-Citation highlighting
+🔎 Character-specific search
 
 
-Character-specific search
+📱 Mobile-friendly UI
 
 
-Sanskrit/Hindi support
+🧬 Hybrid search (keyword + vector)
 
 
 
-📜 Example Queries
-Describe Lord Rama's appearance
-Who was Ravana?
-Tell me about Hanuman's devotion
-What happened during Sita Haran?
+🧪 Example Queries
+Who is Ravana?
+Describe Hanuman's devotion to Rama
+What is the story of Sita Haran?
+Tell me about Lakshman's loyalty
 
-🧠 What is RAG?
-RAG (Retrieval-Augmented Generation) retrieves relevant chunks from documents before sending them to the LLM, making responses:
-
-
-more accurate
+🧠 What Is RAG?
+RAG (Retrieval-Augmented Generation) is a technique where relevant information is first retrieved from documents before sending context to the AI model.
+This allows the chatbot to:
 
 
-context-aware
+answer based on actual documents
 
 
-cheaper
+reduce hallucinations
 
 
-scalable
+improve accuracy
 
 
-Instead of sending the entire PDF to the AI model every time.
+handle very large PDFs efficiently
+
+
 
 🙌 Credits
 
@@ -189,5 +194,5 @@ Groq
 
 
 
-⭐ If You Like This Project
-Give it a star on GitHub ⭐
+⭐ Support
+If you liked this project, consider giving it a star on GitHub ⭐
